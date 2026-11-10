@@ -9,3 +9,17 @@
 2026-11-10 20:29:30.428 -03 [23168] LOG:  checkpoint starting: end-of-recovery immediate wait
 2026-11-10 20:29:30.439 -03 [23168] LOG:  checkpoint complete: wrote 0 buffers (0.0%), wrote 3 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=0.002 s, sync=0.003 s, total=0.014 s; sync files=2, longest=0.002 s, average=0.002 s; distance=0 kB, estimate=0 kB; lsn=0/2EC7870, redo lsn=0/2EC7870
 2026-11-10 20:29:30.445 -03 [24428] LOG:  sistema de banco de dados está pronto para aceitar conexões
+2026-11-10 20:53:09.460 -03 [24428] LOG:  processo trabalhador em segundo plano "logical replication launcher" (PID 3104) foi terminado pela exceção 0xC000013A
+2026-11-10 20:53:09.460 -03 [24428] DICA:  Veja o arquivo de cabeçalho C "ntstatus.h" para obter uma descrição do valor hexadecimal.
+2026-11-10 20:53:09.460 -03 [24428] LOG:  terminando quaisquer outros processos servidor ativos
+^C2026-11-10 20:53:55.158 -03 [12804] LOG:  iniciando PostgreSQL 18.3 on x86_64-windows, compiled by msvc-19.44.35222, 64-bit
+2026-11-10 20:53:55.161 -03 [12804] LOG:  escutando no endereço IPv6 "::1", porta 5432
+2026-11-10 20:53:55.162 -03 [12804] LOG:  escutando no endereço IPv4 "127.0.0.1", porta 5432
+2026-11-10 20:53:55.360 -03 [20436] LOG:  sistema de banco de dados foi interrompido; última execução em 2026-11-10 20:29:30 -03
+2026-11-10 20:53:55.507 -03 [20436] LOG:  sistema de banco de dados não foi desligado corretamente; recuperação automática está em andamento
+2026-11-10 20:53:55.509 -03 [20436] LOG:  redo inicia em 0/2EC78E8
+2026-11-10 20:53:55.509 -03 [20436] LOG:  comprimento de registro inválido em 0/2EC7920: esperado pelo menos 24, obtido 0
+2026-11-10 20:53:55.509 -03 [20436] LOG:  refazer feito em 0/2EC78E8 uso do sistema: CPU: usuário: 0.00 s, sistema: 0.00 s, decorrido: 0.00 s
+2026-11-10 20:53:55.513 -03 [12632] LOG:  checkpoint starting: end-of-recovery immediate wait
+2026-11-10 20:53:55.520 -03 [12632] LOG:  checkpoint complete: wrote 0 buffers (0.0%), wrote 3 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=0.001 s, sync=0.002 s, total=0.009 s; sync files=2, longest=0.001 s, average=0.001 s; distance=0 kB, estimate=0 kB; lsn=0/2EC7920, redo lsn=0/2EC7920
+2026-11-10 20:53:55.523 -03 [12804] LOG:  sistema de banco de dados está pronto para aceitar conexões

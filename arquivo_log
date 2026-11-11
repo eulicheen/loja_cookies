@@ -23,3 +23,9 @@
 2026-11-10 20:53:55.513 -03 [12632] LOG:  checkpoint starting: end-of-recovery immediate wait
 2026-11-10 20:53:55.520 -03 [12632] LOG:  checkpoint complete: wrote 0 buffers (0.0%), wrote 3 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=0.001 s, sync=0.002 s, total=0.009 s; sync files=2, longest=0.001 s, average=0.001 s; distance=0 kB, estimate=0 kB; lsn=0/2EC7920, redo lsn=0/2EC7920
 2026-11-10 20:53:55.523 -03 [12804] LOG:  sistema de banco de dados está pronto para aceitar conexões
+2026-11-10 21:00:55.305 -03 [12804] LOG:  processo trabalhador em segundo plano "logical replication launcher" (PID 24120) foi terminado pela exceção 0xC000013A
+2026-11-10 21:00:55.305 -03 [12804] DICA:  Veja o arquivo de cabeçalho C "ntstatus.h" para obter uma descrição do valor hexadecimal.
+2026-11-10 21:00:55.305 -03 [12804] LOG:  terminando quaisquer outros processos servidor ativos
+2026-11-10 21:00:55.311 -03 [12804] LOG:  pedido de desligamento rápido foi recebido
+^C2026-11-10 21:04:21.097 -03 [31160] FATAL:  arquivo de bloqueio "postmaster.pid" já existe
+2026-11-10 21:04:21.097 -03 [31160] DICA:  Outro postmaster (PID 25056) está executando sob o diretório de dados "C:/Users/isabe/Documents/postgres_data"?

@@ -10,17 +10,17 @@ A **Bell's Cookies** é um projeto feito para praticar **API**. Permite colsutar
 
 ## ✨ Funcionalidade
 
-Cosultar: listar todos os cookies do estoque
-Criar: cadastrar novos cookies (nome, quantidade e preço)
-Editar: editar as informações
+Cosultar: listar todos os cookies do estoque || 
+Criar: cadastrar novos cookies (nome, quantidade e preço) || 
+Editar: editar as informações || 
 Deletar: remover um cookie do estoque
 
 
 ## 🌐 Tecnologias
 
-HTML5 - estrutura da página
-CSS3 - estilização
-JavaScript - CRUD
+HTML5 - estrutura da página || 
+CSS3 - estilização || 
+JavaScript - CRUD || 
 Supabase - PostgreSQL e API
 
 

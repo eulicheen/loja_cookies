@@ -1,0 +1,56 @@
+body{
+    color: rgb(0, 0, 0);
+    background-color: var(--cor-fundo);
+    color: var(--cor-letra);
+}
+
+
+
+/* header */
+header{
+    background-color: var(--cor-card);
+    padding: 5px;
+    text-align: center;
+    border-radius: 5px;
+    border: 2px solid var(--cor-borda);
+}
+
+/* nav */
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    
+    border: 2px solid var(--cor-borda);
+    background-color: var(--cor-card);
+    margin: 10px 0;
+    border-radius: 5px;
+    padding: 10px;
+    list-style-type: none;
+}
+
+nav  a {
+    text-decoration: none; 
+    color: var(--cor-letra); 
+ } 
+
+/*main*/
+main {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 2px solid var(--cor-borda);
+    border-radius: 5px;
+    background-color: var(--cor-card);
+    text-align: center;
+}
+
+/* footer */
+footer {
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    border: 2px solid var(--cor-borda); 
+    background-color: var(--cor-card);
+}

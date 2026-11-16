@@ -1,17 +1,27 @@
-# 🍪 Bell's Cookies
+# 🍪 Estoque Bell's Cookies
 
-Site de uma loja de cookies artesanais, onde o cliente faz seu carrinho de compras.
+Site de uma loja de cookies artesanais, onde o usuário tem acesso ao estoque.
+
 
 ## Sobre o projeto
 
-A **Bell's Cookies** é um projeto feito para praticar banco de dados. 
-O site atualmente exibe apenas uma tela de login.
+A **Bell's Cookies** é um projeto feito para praticar **API**. Permite colsutar, criar, editar e excluir produtos (CRUD), com os dados salvos em um banco **Supabase (PostgreSQL)**. Feita apenas com **HTML**, **CSS** e **JavaScript**.
 
-## Linguagens utilizadas
 
-- **HTML5**
-- **CSS3**
-- **JavaScript**
-- **SQL (supabase)**
+## ✨ Funcionalidade
 
-## Funcionalidades
+Cosultar: listar todos os cookies do estoque
+Criar: cadastrar novos cookies (nome, quantidade e preço)
+Editar: editar as informações
+Deletar: remover um cookie do estoque
+
+
+## 🌐 Tecnologias
+
+HTML5 - estrutura da página
+CSS3 - estilização
+JavaScript - CRUD
+Supabase - PostgreSQL e API
+
+
+Feito com muito açúcar.

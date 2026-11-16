@@ -4,9 +4,6 @@ body{
     color: var(--cor-letra);
 }
 
-
-
-/* header */
 header{
     background-color: var(--cor-card);
     padding: 5px;
@@ -15,7 +12,6 @@ header{
     border: 2px solid var(--cor-borda);
 }
 
-/* nav */
 nav {
     display: flex;
     align-items: center;
@@ -36,7 +32,6 @@ nav  a {
     color: var(--cor-letra); 
  } 
 
-/*main*/
 main {
     padding: 10px;
     margin-bottom: 10px;
@@ -46,7 +41,6 @@ main {
     text-align: center;
 }
 
-/* footer */
 footer {
     padding: 10px;
     text-align: center;
@@ -54,3 +48,40 @@ footer {
     border: 2px solid var(--cor-borda); 
     background-color: var(--cor-card);
 }
+
+
+/* editar */
+       /* form {
+            display: flex; 
+            flex-direction: column; 
+            gap: 10px; 
+            margin-bottom: 20px; 
+            padding: 15px; 
+            border: 1px solid #ccc; 
+        }
+
+        input, textarea, button {
+            padding: 8px; 
+            font-size: 16px; 
+        }
+
+        button {
+            cursor: pointer; 
+            background-color: #007bff; 
+            color: white; 
+            border: none; 
+        }
+
+        button:hover {
+            background-color: #0056b3; 
+        }
+
+        #mensagem {
+            margin-bottom: 10px; 
+            color: var(--cor-letra1); 
+            font-weight: bold; 
+        }
+
+        .oculto {
+            display: none; 
+            } */

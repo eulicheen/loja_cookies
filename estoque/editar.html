@@ -6,7 +6,15 @@
     <title>Estoque</title>
 
     <link rel="stylesheet" href="/estoque/css/main.css">
+
+    <style>
+        
+    .estoque-card { border: 1px solid #ddd; padding: 15px; margin-bottom: 10px; border-radius: 4px; }
+    .actions { margin-top: 10px; }
+
+    </style>
 </head>
+
 <body>
 
     <header-js></header-js>
@@ -16,6 +24,26 @@
 
     <main>
         
+        <section>
+
+            <div id="mensagem">Escolha uma notícia para editar</div>
+    
+            <!-- Formulário para Editar -->
+            <form id="form" class="oculto">    
+
+                <input type="hidden" id="estoque">
+
+                <input type="text" id="nome" placeholder="Nome do produto" required>
+                <input type="number" id="quantidade" placeholder="Quantidade do produto" required>
+                <input type="number" id="preco" placeholder="Preço do produto" required>
+
+                <button type="submit" id="botao">Alterar produto</button>
+           
+            </form>
+
+                <div id="container"></div>
+
+        </section>
 
     </main>
 
@@ -23,6 +51,7 @@
     <footer-js></footer-js>
 
     <script src="js/components.js"></script>
+    <script type="module" src="js/main.js"></script>
     
 </body>
 </html>

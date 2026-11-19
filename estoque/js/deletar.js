@@ -11,15 +11,17 @@
         //buscar estoque
         async function buscarEstoque() {
             try {
-                const response = await fetch(`${API_URL}`, {
+                const response = await fetch(API_URL, {
                     headers: {
                         apikey: PUBLISHABLE_KEY,
                         'Authorization': `Bearer ${PUBLISHABLE_KEY}`
                     }
                 });
+
                 localEstoque = await response.json();
                 renderEstoque();
             } catch (error) {
+                console.error('Erro ao buscar estoque:', error);
                 container.innerHTML = 'Erro ao carregar os dados.';
             }
         }
@@ -39,7 +41,7 @@
                         <p>Quantidade: ${estoque.quantidade}</p>
                         <p>Preço: ${estoque.preco}</p>
                         <div class="actions">
-                            <button class="delete" onclick="deletarProduto(${estoque.id})">Deletar</button>
+                            <button class="delete" onclick="deletarProduto('${estoque.id}')">Deletar</button>
                         </div>
                     </div>
                 `;
@@ -63,7 +65,10 @@
                         'Authorization': `Bearer ${PUBLISHABLE_KEY}`
                     },
                 });
-                const deletarProduto = await resposta.json();
+                
+                if (!resposta.ok) {
+                    throw new Error(`Erro HTTP: ${resposta.status}`);
+                }
 
                mensagem.innerHTML = `Produto excluído com sucesso! <br>
                                     Escolha outro produto para excluir.`;       
@@ -73,5 +78,7 @@
                 console.error('Erro ao excluir produto:', error);
             }
         }
+
+        window.deletarProduto = deletarProduto;
 
         buscarEstoque();

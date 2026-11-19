@@ -5,7 +5,7 @@ class header extends HTMLElement {
       this.innerHTML = `
         <header>
           <h1>
-            Estoque Bell's Cookies
+            🍪 Estoque Bell's Cookies
           </h1>
         </header>
       `;

@@ -1,6 +1,6 @@
 // editar
 
-    import {PUBLISHABLE_KEY, API_URL} from "./js/modulo.js";
+    import {PUBLISHABLE_KEY, API_URL} from "./modulo.js";
 
         const form = document.querySelector('#form');
         const input = document.querySelector('#estoque');

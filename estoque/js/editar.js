@@ -1,5 +1,4 @@
 // editar
-
     import {PUBLISHABLE_KEY, API_URL} from "./modulo.js";
 
         const form = document.querySelector('#form');
@@ -20,7 +19,7 @@
         form.addEventListener('submit', updateEstoque);
         
 
-        // READ
+        //busca estoque
         async function buscarEstoque() {
             try {
                 const response = await fetch(API_URL, {
@@ -35,7 +34,7 @@
             }
         }
 
-        //renderizar os elementos na tela
+        //redenriza o estoque
         function renderEstoque() {
             if (localEstoque.length == 0) {
                 container.innerHTML = '<p>Nenhum produto encontrado.</p>';
@@ -76,39 +75,63 @@
         }
         window.prepararEdit = prepararEdit;
 
-        //UPDATE
-        async function updateEstoque(e) {
-            e.preventDefault();
-            
-            const id = input.value;
-            const estoqueData = {
-                nome_produto: nome.value,
-                quantidade: Number(quantidade.value),
-                preco: Number(preco.value)
-            };
+// atualiza
+async function updateEstoque(e) {
+    e.preventDefault();
+    
+    const id = input.value;
+    
+    // Validação básica para garantir que temos um ID válido
+    if (!id) {
+        alert("Nenhum produto selecionado para edição!");
+        return;
+    }
 
-            try {
-                const url = new URL(API_URL)
-                url.searchParams.set('id', `eq.${id}`)
-                const response = await fetch(url, {
-                    method: 'PATCH',
-                    headers: {    
-                    apikey: PUBLISHABLE_KEY,
-                    'Content-Type': 'application/json',  
-                    Prefer:'return=representation'
+    const estoqueData = {
+        nome_produto: nome.value,
+        quantidade: Number(quantidade.value),
+        preco: Number(preco.value)
+    };
+
+    try {
+        // Monta a URL limpa baseada na rota da tabela (removendo o ?select=* da base se houver)
+        // A URL para update precisa do filtro exato: /rest/v1/estoque?id=eq.{id}
+        const baseUrl = API_URL.split('?')[0]; // Pega apenas a URL limpa sem parâmetros anteriores
+        const urlUpdate = `${baseUrl}?id=eq.${id}`;
+
+        console.log("Enviando PATCH para:", urlUpdate);
+
+        const response = await fetch(urlUpdate, {
+            method: 'PATCH',
+            headers: {    
+                'apikey': PUBLISHABLE_KEY,
+                'Authorization': `Bearer ${PUBLISHABLE_KEY}`, // Importante para auth/RLS
+                'Content-Type': 'application/json',  
+                'Prefer': 'return=representation'
             },
-                    body: JSON.stringify(estoqueData)
-                });
-                const updateEstoque = await response.json();
-                
-                form.classList.add('oculto');
-                container.classList.remove('oculto');
-                mensagem.innerHTML = `Estoque alterado com sucesso!<br>
-                                    Escolha outro produto para editar.`;
-                buscarEstoque(); //atualiza a lista de produtos após a alteração
-            } catch (error) {
-                console.error('Erro ao alterar estoque:', error);
-            }
+            body: JSON.stringify(estoqueData)
+        });
+
+        if (!response.ok) {
+            const erroDetalhes = await response.json();
+            throw new Error(`Erro ao atualizar: ${JSON.stringify(erroDetalhes)}`);
         }
+
+        const resultado = await response.json();
+        console.log("Atualizado com sucesso:", resultado);
+        
+        form.classList.add('oculto');
+        container.classList.remove('oculto');
+        mensagem.innerHTML = `Estoque alterado com sucesso!<br>Escolha outro produto para editar.`;
+        
+        // Limpa o formulário e recarrega a lista atualizada
+        form.reset();
+        buscarEstoque(); 
+
+    } catch (error) {
+        console.error('Erro ao alterar estoque:', error);
+        alert('Erro ao atualizar o produto. Verifique o console.');
+    }
+}
 
         buscarEstoque();

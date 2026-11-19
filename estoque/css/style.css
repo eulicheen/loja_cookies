@@ -51,13 +51,13 @@ footer {
 
 
 /* editar */
-       /* form {
+       form {
             display: flex; 
             flex-direction: column; 
             gap: 10px; 
             margin-bottom: 20px; 
             padding: 15px; 
-            border: 1px solid #ccc; 
+            border: 1px solid #000000; 
         }
 
         input, textarea, button {
@@ -67,13 +67,13 @@ footer {
 
         button {
             cursor: pointer; 
-            background-color: #007bff; 
-            color: white; 
+            background-color: var(--cor-letra1); 
+            color: var(--cor-fundo); 
             border: none; 
         }
 
         button:hover {
-            background-color: #0056b3; 
+            background-color: var(--cor-letra); 
         }
 
         #mensagem {
@@ -84,4 +84,4 @@ footer {
 
         .oculto {
             display: none; 
-            } */
+            }

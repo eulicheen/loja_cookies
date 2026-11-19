@@ -1,10 +1,11 @@
+//consultar
 import {PUBLISHABLE_KEY, API_URL} from "./modulo.js";
 
 
         const container = document.querySelector('#container');
         let localEstoque = [];
 
-    //busca notícias
+    //busca estoque
         async function buscarEstoque() {
             try {
                 const response = await fetch(API_URL,
@@ -22,7 +23,7 @@ import {PUBLISHABLE_KEY, API_URL} from "./modulo.js";
             }
         }
 
-        //redenriza os elementos na tela
+        //redenriza o estoque
         function renderEstoque() {
             if (localEstoque.length === 0) {
                 container.innerHTML = '<p>Nenhum produto encontrado.</p>';

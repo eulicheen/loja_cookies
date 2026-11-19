@@ -1,4 +1,4 @@
-// editar
+//editar
     import {PUBLISHABLE_KEY, API_URL} from "./modulo.js";
 
         const form = document.querySelector('#form');
@@ -45,7 +45,7 @@
             localEstoque.forEach(estoque => {
                 container.innerHTML += `
                     <div class="estoque-card" id="estoque-${estoque.id}">
-                        <h3>Nome: ${estoque.nome_produto}</h3>
+                        <h2>${estoque.nome_produto}</h2>
                         <p>Quantidade: ${estoque.quantidade}</p>
                         <p>Preço: ${estoque.preco}</p>
                         <div class="actions">
@@ -75,63 +75,56 @@
         }
         window.prepararEdit = prepararEdit;
 
-// atualiza
-async function updateEstoque(e) {
-    e.preventDefault();
-    
-    const id = input.value;
-    
-    // Validação básica para garantir que temos um ID válido
-    if (!id) {
-        alert("Nenhum produto selecionado para edição!");
-        return;
-    }
+        // atualiza
+        async function updateEstoque(e) {
+            e.preventDefault();
+            
+            const id = input.value;
+            
+            // Validação básica para garantir que temos um ID válido
+            if (!id) {
+                alert("Nenhum produto selecionado para edição!");
+                return;
+            }
 
-    const estoqueData = {
-        nome_produto: nome.value,
-        quantidade: Number(quantidade.value),
-        preco: Number(preco.value)
-    };
+            const estoqueData = {
+                nome_produto: nome.value,
+                quantidade: Number(quantidade.value),
+                preco: Number(preco.value)
+            };
 
-    try {
-        // Monta a URL limpa baseada na rota da tabela (removendo o ?select=* da base se houver)
-        // A URL para update precisa do filtro exato: /rest/v1/estoque?id=eq.{id}
-        const baseUrl = API_URL.split('?')[0]; // Pega apenas a URL limpa sem parâmetros anteriores
-        const urlUpdate = `${baseUrl}?id=eq.${id}`;
+            try {
+                const baseUrl = API_URL.split('?')[0]; //pega apenas a URL limpa sem parâmetros anteriores
+                const urlUpdate = `${baseUrl}?id=eq.${id}`;
 
-        console.log("Enviando PATCH para:", urlUpdate);
+                console.log("Enviando PATCH para:", urlUpdate);
 
-        const response = await fetch(urlUpdate, {
-            method: 'PATCH',
-            headers: {    
-                'apikey': PUBLISHABLE_KEY,
-                'Authorization': `Bearer ${PUBLISHABLE_KEY}`, // Importante para auth/RLS
-                'Content-Type': 'application/json',  
-                'Prefer': 'return=representation'
-            },
-            body: JSON.stringify(estoqueData)
-        });
+                const response = await fetch(urlUpdate, {
+                    method: 'PATCH',
+                    headers: {    
+                        'apikey': PUBLISHABLE_KEY,
+                        'Authorization': `Bearer ${PUBLISHABLE_KEY}`, // Importante para auth/RLS
+                        'Content-Type': 'application/json',  
+                        'Prefer': 'return=representation'
+                    },
+                    body: JSON.stringify(estoqueData)
+                });
 
-        if (!response.ok) {
-            const erroDetalhes = await response.json();
-            throw new Error(`Erro ao atualizar: ${JSON.stringify(erroDetalhes)}`);
+                const resultado = await response.json();
+                console.log("Atualizado com sucesso:", resultado);
+                
+                form.classList.add('oculto');
+                container.classList.remove('oculto');
+                mensagem.innerHTML = `Estoque alterado com sucesso!<br>Escolha outro produto para editar.`;
+                
+                //limpa o formulário e recarrega a lista atualizada
+                form.reset();
+                buscarEstoque(); 
+
+            } catch (error) {
+                console.error('Erro ao alterar estoque:', error);
+                alert('Erro ao atualizar o produto. Verifique o console.');
+            }
         }
-
-        const resultado = await response.json();
-        console.log("Atualizado com sucesso:", resultado);
-        
-        form.classList.add('oculto');
-        container.classList.remove('oculto');
-        mensagem.innerHTML = `Estoque alterado com sucesso!<br>Escolha outro produto para editar.`;
-        
-        // Limpa o formulário e recarrega a lista atualizada
-        form.reset();
-        buscarEstoque(); 
-
-    } catch (error) {
-        console.error('Erro ao alterar estoque:', error);
-        alert('Erro ao atualizar o produto. Verifique o console.');
-    }
-}
 
         buscarEstoque();

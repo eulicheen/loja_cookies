@@ -33,7 +33,7 @@ import {PUBLISHABLE_KEY, API_URL} from "./modulo.js";
             localEstoque.forEach(estoque => {
                 container.innerHTML += `
                     <div class="estoque-card" id="estoque-${estoque.id}">
-                        <h3>${estoque.nome_produto}</h3>
+                        <h2>${estoque.nome_produto}</h2>
                         <p>Quantidade: ${estoque.quantidade}</p>
                         <p>Preço: ${estoque.preco}</p>
                     </div>

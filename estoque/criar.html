@@ -15,7 +15,26 @@
     <nav-js></nav-js>
 
     <main>
-        
+        <section>
+
+            <div id="mensagem">Escolha um produto para editar</div>
+    
+            <!-- Formulário para Editar -->
+            <form id="form">    
+
+                <input type="hidden" id="estoque">
+
+                <input type="text" id="nome" placeholder="Nome" required>
+                <input type="number" id="quantidade" placeholder="Quantidade" required>
+                <input type="number" id="preco" placeholder="Preço" required>
+
+                <button type="submit" id="botao">Criar produto</button>
+           
+            </form>
+
+                <div id="container"></div>
+
+        </section>
 
     </main>
 
@@ -23,6 +42,7 @@
     <footer-js></footer-js>
 
     <script src="js/components.js"></script>
+    <script type="module" src="./js/criar.js"></script>
     
 </body>
 </html>

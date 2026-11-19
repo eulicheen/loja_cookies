@@ -16,6 +16,7 @@
         //armazenar dados no servidor
         let localEstoque = [];
         
+
         form.addEventListener('submit', updateEstoque);
         
 
